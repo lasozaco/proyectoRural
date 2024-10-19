@@ -21,8 +21,8 @@
 :root { 
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #2c4964; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #5846f9; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --heading-color: #87ceeb; /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #87ceeb; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
@@ -34,14 +34,14 @@
   --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #444444; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #5846f9; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-dropdown-hover-color: #87ceeb; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
 .light-background {
-  --background-color: #f9f8ff;
-  --surface-color: #ffffff;
+  --background-color: #444444;
+  --surface-color: #87ceeb;
 }
 
 .dark-background {
@@ -53,11 +53,11 @@
 }
 
 .accent-background {
-  --background-color: #5846f9;
+  --background-color: #87ceeb;
   --default-color: #ffffff;
   --heading-color: #ffffff;
   --accent-color: #ffffff;
-  --surface-color: #7c25ba;
+  --surface-color: #87ceeb;
   --contrast-color: #ffffff;
 }
 
@@ -152,10 +152,10 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  --background-color: rgba(0, 0, 0, 0);
+  --background-color: #87ceeb;
   --default-color: #ffffff;
   --heading-color: #ffffff;
-  color: var(--default-color);
+  color: var(--background-color);
   background-color: var(--background-color);
   padding: 20px 0;
   transition: all 0.5s;
@@ -175,23 +175,23 @@ h6 {
   font-size: 30px;
   margin: 0;
   font-weight: 700;
-  color: var(--heading-color);
+  color: var(--default-color);
 }
 
 .header .btn-getstarted,
 .header .btn-getstarted:focus {
-  color: var(--contrast-color);
+  color: var(--default-color);
   font-size: 14px;
   padding: 7px 25px;
   margin: 0 0 0 30px;
   border-radius: 4px;
   transition: 0.3s;
-  border: 2px solid color-mix(in srgb, var(--contrast-color), transparent 50%);
+  border: 2px solid color-mix(in srgb, var(--default-color), transparent 50%);
 }
 
 .header .btn-getstarted:hover,
 .header .btn-getstarted:focus:hover {
-  color: var(--contrast-color);
+  color: var(--background-color);
   border-color: var(--contrast-color);
 }
 
@@ -213,12 +213,6 @@ h6 {
 
 .scrolled .header {
   box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
-}
-
-/* Global Header on Scroll
-------------------------------*/
-.scrolled .header {
-  --background-color: rgba(77, 44, 169, 0.9);
 }
 
 /*--------------------------------------------------------------
@@ -317,7 +311,7 @@ h6 {
   }
 
   .navmenu .dropdown ul li {
-    min-width: 200px;
+    min-width: 245px;
   }
 
   .navmenu .dropdown ul a {
@@ -325,6 +319,8 @@ h6 {
     font-size: 15px;
     text-transform: none;
     color: var(--nav-dropdown-color);
+    white-space: normal;  
+    word-wrap: break-word;
   }
 
   .navmenu .dropdown ul a i {
@@ -1146,293 +1142,7 @@ section,
   background-color: var(--accent-color);
 }
 
-/*--------------------------------------------------------------
-# Portfolio Section
---------------------------------------------------------------*/
-.portfolio .portfolio-filters {
-  padding: 0 0 20px 0;
-  margin: 0 auto;
-  list-style: none;
-  text-align: center;
-}
 
-.portfolio .portfolio-filters li {
-  cursor: pointer;
-  display: inline-block;
-  padding: 0;
-  font-size: 18px;
-  font-weight: 500;
-  margin: 0 10px;
-  line-height: 1;
-  transition: all 0.3s ease-in-out;
-}
-
-.portfolio .portfolio-filters li:hover,
-.portfolio .portfolio-filters li.filter-active {
-  color: var(--accent-color);
-}
-
-.portfolio .portfolio-filters li:first-child {
-  margin-left: 0;
-}
-
-.portfolio .portfolio-filters li:last-child {
-  margin-right: 0;
-}
-
-@media (max-width: 575px) {
-  .portfolio .portfolio-filters li {
-    font-size: 14px;
-    margin: 0 5px;
-  }
-}
-
-.portfolio .portfolio-content {
-  background-color: var(--surface-color);
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-  height: 100%;
-  overflow: hidden;
-}
-
-.portfolio .portfolio-content img {
-  transition: 0.3s;
-  position: relative;
-  z-index: 1;
-}
-
-.portfolio .portfolio-content .portfolio-info {
-  background-color: var(--background-color);
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-  padding: 25px 20px;
-  position: relative;
-  z-index: 2;
-}
-
-.portfolio .portfolio-content .portfolio-info h4 {
-  font-size: 18px;
-  font-weight: 600;
-  padding-right: 50px;
-}
-
-.portfolio .portfolio-content .portfolio-info h4 a {
-  color: var(--heading-color);
-  transition: 0.3s;
-}
-
-.portfolio .portfolio-content .portfolio-info h4 a:hover {
-  color: var(--accent-color);
-}
-
-.portfolio .portfolio-content .portfolio-info p {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  font-size: 14px;
-  margin-bottom: 0;
-  padding-right: 50px;
-}
-
-.portfolio .portfolio-content:hover img {
-  transform: scale(1.1);
-}
-
-/*--------------------------------------------------------------
-# Pricing Section
---------------------------------------------------------------*/
-.pricing .pricing-item {
-  background-color: var(--surface-color);
-  box-shadow: 0 3px 20px -2px rgba(0, 0, 0, 0.1);
-  border-top: 4px solid var(--background-color);
-  padding: 60px 40px;
-  height: 100%;
-  border-radius: 5px;
-}
-
-.pricing h3 {
-  font-weight: 600;
-  margin-bottom: 15px;
-  font-size: 20px;
-}
-
-.pricing h4 {
-  color: var(--accent-color);
-  font-size: 48px;
-  font-weight: 400;
-  font-family: var(--heading-font);
-  margin-bottom: 0;
-}
-
-.pricing h4 sup {
-  font-size: 28px;
-}
-
-.pricing h4 span {
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
-  font-size: 18px;
-}
-
-.pricing ul {
-  padding: 20px 0;
-  list-style: none;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  text-align: left;
-  line-height: 20px;
-}
-
-.pricing ul li {
-  padding: 10px 0;
-  display: flex;
-  align-items: center;
-}
-
-.pricing ul i {
-  color: #059652;
-  font-size: 24px;
-  padding-right: 3px;
-}
-
-.pricing ul .na {
-  color: color-mix(in srgb, var(--default-color), transparent 60%);
-}
-
-.pricing ul .na i {
-  color: color-mix(in srgb, var(--default-color), transparent 60%);
-}
-
-.pricing ul .na span {
-  text-decoration: line-through;
-}
-
-.pricing .buy-btn {
-  color: var(--accent-color);
-  display: inline-block;
-  padding: 8px 35px 10px 35px;
-  border-radius: 50px;
-  transition: none;
-  font-size: 16px;
-  font-weight: 500;
-  font-family: var(--heading-font);
-  transition: 0.3s;
-  border: 1px solid var(--accent-color);
-}
-
-.pricing .buy-btn:hover {
-  background: var(--accent-color);
-  color: var(--contrast-color);
-}
-
-.pricing .featured {
-  border-top-color: var(--accent-color);
-}
-
-.pricing .featured .buy-btn {
-  background: var(--accent-color);
-  color: var(--contrast-color);
-}
-
-@media (max-width: 992px) {
-  .pricing .box {
-    max-width: 60%;
-    margin: 0 auto 30px auto;
-  }
-}
-
-@media (max-width: 767px) {
-  .pricing .box {
-    max-width: 80%;
-    margin: 0 auto 30px auto;
-  }
-}
-
-@media (max-width: 420px) {
-  .pricing .box {
-    max-width: 100%;
-    margin: 0 auto 30px auto;
-  }
-}
-
-/*--------------------------------------------------------------
-# Faq Section
---------------------------------------------------------------*/
-.faq .faq-container .faq-item {
-  background-color: var(--surface-color);
-  position: relative;
-  padding: 20px;
-  margin-bottom: 15px;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.faq .faq-container .faq-item:last-child {
-  margin-bottom: 0;
-}
-
-.faq .faq-container .faq-item h3 {
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 24px;
-  margin: 0 30px 0 0;
-  transition: 0.3s;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-}
-
-.faq .faq-container .faq-item h3 .num {
-  color: var(--accent-color);
-  padding-right: 5px;
-}
-
-.faq .faq-container .faq-item h3:hover {
-  color: var(--accent-color);
-}
-
-.faq .faq-container .faq-item .faq-content {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: 0.3s ease-in-out;
-  visibility: hidden;
-  opacity: 0;
-}
-
-.faq .faq-container .faq-item .faq-content p {
-  margin-bottom: 0;
-  overflow: hidden;
-}
-
-.faq .faq-container .faq-item .faq-toggle {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 16px;
-  line-height: 0;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-.faq .faq-container .faq-item .faq-toggle:hover {
-  color: var(--accent-color);
-}
-
-.faq .faq-container .faq-active {
-  background-color: color-mix(in srgb, var(--accent-color), transparent 97%);
-  border-color: color-mix(in srgb, var(--accent-color), transparent 80%);
-}
-
-.faq .faq-container .faq-active h3 {
-  color: var(--accent-color);
-}
-
-.faq .faq-container .faq-active .faq-content {
-  grid-template-rows: 1fr;
-  visibility: visible;
-  opacity: 1;
-  padding-top: 10px;
-}
-
-.faq .faq-container .faq-active .faq-toggle {
-  transform: rotate(90deg);
-  color: var(--accent-color);
-}
 
 /*--------------------------------------------------------------
 # Team Section
@@ -1843,6 +1553,3 @@ section,
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
-}
