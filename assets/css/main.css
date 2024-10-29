@@ -520,75 +520,12 @@ h6 {
   font-family: var(--heading-font);
 }
 
-.footer .footer-about p {
-  font-size: 14px;
-  font-family: var(--heading-font);
-}
-
-.footer .social-links a {
+.footer .img-footer {
   display: flex;
-  align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 50%);
-  font-size: 16px;
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
-  margin-right: 10px;
-  transition: 0.3s;
-}
-
-.footer .social-links a:hover {
-  color: var(--accent-color);
-  border-color: var(--accent-color);
-}
-
-.footer h4 {
-  font-size: 16px;
-  font-weight: bold;
-  position: relative;
-  padding-bottom: 12px;
-}
-
-.footer .footer-links {
-  margin-bottom: 30px;
-}
-
-.footer .footer-links ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer .footer-links ul i {
-  padding-right: 2px;
-  font-size: 12px;
-  line-height: 0;
-}
-
-.footer .footer-links ul li {
-  padding: 10px 0;
-  display: flex;
   align-items: center;
-}
-
-.footer .footer-links ul li:first-child {
-  padding-top: 0;
-}
-
-.footer .footer-links ul a {
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  display: inline-block;
-  line-height: 1;
-}
-
-.footer .footer-links ul a:hover {
-  color: var(--accent-color);
-}
-
-.footer .footer-contact p {
-  margin-bottom: 5px;
+  margin-top: 10px;
+  padding: 35px 0;
 }
 
 .footer .copyright {
@@ -755,7 +692,7 @@ section,
 .section-title h2 {
   font-size: 32px;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding-bottom: 20px;
   position: relative;
 }
@@ -882,6 +819,10 @@ section,
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
+.about {
+  background-color: #f9f8ff;
+}
+
 .about .content h3 {
   font-size: 2rem;
   font-weight: 700;
@@ -941,10 +882,6 @@ section,
 # Services Section
 --------------------------------------------------------------*/
 
-.services {
-  background-color: #f9f8ff;
-}
-
 .services .service-item {
   position: relative;
   padding-top: 20px;
@@ -980,33 +917,6 @@ section,
 
 .services .service-item:hover .icon i {
   color: var(--contrast-color);
-}
-
-/*--------------------------------------------------------------
-# Features Section
---------------------------------------------------------------*/
-.features .features-image {
-  position: relative;
-  min-height: 400px;
-}
-
-.features .features-item h4 {
-  font-size: 20px;
-  font-weight: 700;
-  margin: 0 0 5px 0;
-}
-
-.features .features-item i {
-  font-size: 48px;
-  color: var(--accent-color);
-  margin-right: 20px;
-  line-height: 0;
-}
-
-.features .features-item p {
-  font-size: 15px;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  margin: 0;
 }
 
 /*--------------------------------------------------------------
@@ -1066,6 +976,7 @@ section,
 
 .testimonials .testimonial-item p {
   font-style: italic;
+  font-size: 15px;
   margin: 0 15px 0 15px;
   padding: 20px 20px 60px 20px;
   background: var(--surface-color);
@@ -1164,6 +1075,3 @@ section,
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
-}
