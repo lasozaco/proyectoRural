@@ -1,1 +1,50 @@
-<p>dashboard works!</p>
+<div class="container dashboard">
+  <!-- Menú lateral -->
+  <div class="sidebar">
+    <h2>Menú</h2>
+    <ul>
+      <li><a href="#">Eventos</a></li>
+      <li><a href="#">Fotos</a></li>
+      <li><a href="#">Videos</a></li>
+      <li><a href="#">Reportes</a></li>
+      <li><a href="#">Configuración</a></li>
+    </ul>
+  </div>
+
+  <!-- Contenido principal para administrar multimedia -->
+  <div class="main-content">
+    <h2>Administración de Contenido Multimedia</h2>
+
+    <!-- Sección para agregar nuevo contenido -->
+    <div class="add-content">
+      <h3>Agregar Nuevo Contenido</h3>
+      <input type="text" placeholder="Título del evento" />
+      <textarea placeholder="Descripción"></textarea>
+      <input type="file" accept="image/*,video/*" />
+      <button class="add-button">Agregar</button>
+    </div>
+
+    <!-- Línea divisoria decorativa -->
+    <hr class="section-divider" />
+
+    <!-- Sección para listar y editar/eliminar contenido existente -->
+    <div class="content-list">
+      <h3 style="text-align: left;">Contenido Existente</h3>
+
+      <!-- Ejemplo de un contenido de tipo video -->
+      <div class="media-item">
+        <h4>Video del Evento de Deportes</h4>
+        <p>Un resumen de los mejores momentos del evento deportivo en el colegio.</p>
+        <video controls>
+          <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4" />
+        </video>
+
+        <!-- Botones de editar y eliminar -->
+        <div class="button-container">
+          <button>Editar</button>
+          <button>Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
