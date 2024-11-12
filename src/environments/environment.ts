@@ -1,3 +1,3 @@
 export const environment = {
-      url:'http://localhost:4200/api'
+      url:'https://api.toliagricola.com/public/api'
 };
