@@ -1,7 +1,5 @@
 [![wakatime](https://wakatime.com/badge/user/48ac417d-5fe9-4504-a1da-6da161bd1152/project/ad6e9147-6f1f-4b58-a0ca-d1f8fb95f798.svg)](https://wakatime.com/badge/user/48ac417d-5fe9-4504-a1da-6da161bd1152/project/ad6e9147-6f1f-4b58-a0ca-d1f8fb95f798)
 
-[![wakatime](https://wakatime.com/badge/github/lasozaco/proyectoruralback.svg)](https://wakatime.com/badge/github/lasozaco/proyectoruralback)
-
 # Proyectorural
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.0.
