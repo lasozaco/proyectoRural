@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="col-lg-6 order-1 order-lg-2 hero-img">
-        <img src="assets/img/Colage.jpg" class="img-fluid animated" alt="">
+        <img src="assets/img/Colage.webp" class="img-fluid animated" alt="">
       </div>
     </div>
   </div>
@@ -29,7 +29,7 @@
     <div class="row gy-4">
 
       <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
-        <img src="assets/img/about-removebg-preview.png" class="img-fluid" alt="">
+        <img src="assets/img/about-removebg-preview.webp" class="img-fluid" alt="">
       </div>
 
       <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
@@ -138,24 +138,24 @@
 
 <!-- Testimonials Section -->
 <section id="testimonials" class="testimonials section light-background">
-  <!-- Section Title -->
   <div class="container section-title">
-    <h2>Instituciones</h2>
-  </div><!-- End Section Title -->
+      <h2>Instituciones</h2>
+  </div>
 
   <div class="container grid">
-
-    <div *ngFor="let colegio of colegios" class="testimonial-item">
-      <p>
-        <i class="bi bi-quote quote-icon-left"></i>
-        Documentamos el proceso de los estudiantes en sus investigaciones, motivándolos a continuar en el ámbito de la
-        ciencia y la innovación, inspirando así a las futuras generaciones.
-        <i class="bi bi-quote quote-icon-right"></i>
-      </p>
-      <h3>{{ colegio.name }}</h3>
-      <h4>{{colegio.address}}</h4>
-        <h4>{{colegio.email}}</h4>
-    </div>
-
+      <div *ngFor="let colegio of colegios" class="testimonial-item">
+        <h3>{{ colegio.name }}</h3>
+          <div class="testimonial-img-container">
+              <img src="assets/img/about-removebg-preview.webp"  class="testimonial-img" />
+          </div>
+          <!--- alt="{{ colegio.name }}" --->
+          <p>
+              <i class="bi bi-quote quote-icon-left"></i>
+              Documentamos el proceso de los estudiantes en sus investigaciones, motivándolos a continuar en el ámbito de la ciencia y la innovación, inspirando así a las futuras generaciones.
+              <i class="bi bi-quote quote-icon-right"></i>
+          </p>
+          <h4>{{ colegio.address }}</h4>
+          <h4>{{ colegio.email }}</h4>
+      </div>
   </div>
 </section>
