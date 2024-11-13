@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import Institutions from "../../Models/Institutions";
 import {ColegiosService} from "../../services/public/colegios.service";
 import {CommonModule} from "@angular/common";
+import {EventsService} from "../../services/public/events.service";
+import Event from "../../Models/Event";
 
 @Component({
   selector: 'app-index',
@@ -12,9 +14,12 @@ import {CommonModule} from "@angular/common";
 })
 export class IndexComponent {
   params: string = ''
-  colegios: Institutions[] = []
+  colegios: Institutions[] = [];
+  event: Event[]=[];
 
-  constructor(private colegiosService: ColegiosService) {
+  constructor(
+      private readonly colegiosService: ColegiosService,
+      private readonly eventsService: EventsService) {
   }
 
   ngOnInit(): void {
@@ -32,4 +37,5 @@ export class IndexComponent {
       }
     })
   }
+
 }

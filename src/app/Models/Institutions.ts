@@ -3,4 +3,6 @@ export default interface Institutions{
     name:string;
     address:string;
     email:string;
+    logo: string;
+    description: string;
 }
