@@ -18,7 +18,7 @@ export class EventosComponent implements OnInit{
   }
 
   ngOnInit() {
-    //this.getColegioById();
+    //this.getColegioById( enviar id del path variable);
   }
 
   getColegioById(id:number){
