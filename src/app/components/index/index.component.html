@@ -146,16 +146,19 @@
       <div *ngFor="let colegio of colegios" class="testimonial-item">
         <h3>{{ colegio.name }}</h3>
           <div class="testimonial-img-container">
-              <img src="assets/img/about-removebg-preview.webp"  class="testimonial-img" />
+              <img src="{{colegio.logo}}"  class="testimonial-img" />
           </div>
           <!--- alt="{{ colegio.name }}" --->
           <p>
               <i class="bi bi-quote quote-icon-left"></i>
-              Documentamos el proceso de los estudiantes en sus investigaciones, motivándolos a continuar en el ámbito de la ciencia y la innovación, inspirando así a las futuras generaciones.
+              {{colegio.description}}
               <i class="bi bi-quote quote-icon-right"></i>
           </p>
           <h4>{{ colegio.address }}</h4>
           <h4>{{ colegio.email }}</h4>
+          <div >
+              <button class="btn btn-primary">Eventos</button>
+          </div>
       </div>
   </div>
 </section>
