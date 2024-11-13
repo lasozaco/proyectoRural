@@ -1,0 +1,161 @@
+<!-- Hero Section // Sebas -->
+<section id="hero" class="hero section accent-background">
+
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+        <h1>Ecosistema del Futuro</h1>
+        <p>Nos enfocamos en desarrollar proyectos con instituciones rurales, incluyendo actividades como Bootcamp,
+          donde los estudiantes presentan investigaciones sobre sostenibilidad, medio ambiente y gestión del agua,
+          promoviendo la conciencia ecológica, incluyendo a los estudiantes a semilleros de investigación con
+          proyectos sostenibles y fortaleciendo sus habilidades para proteger el entorno natural.</p>
+        <div class="d-flex">
+          <a href="#about" class="btn-get-started">Descubre más</a>
+        </div>
+      </div>
+      <div class="col-lg-6 order-1 order-lg-2 hero-img">
+        <img src="assets/img/Colage.webp" class="img-fluid animated" alt="">
+      </div>
+    </div>
+  </div>
+
+</section><!-- /Hero Section -->
+
+<!-- About Section -->
+<section id="about" class="about section">
+
+  <div class="container">
+
+    <div class="row gy-4">
+
+      <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
+        <img src="assets/img/about-removebg-preview.webp" class="img-fluid" alt="">
+      </div>
+
+      <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
+        <h3>Misión</h3>
+        <p class="fst-italic">
+          Promover la educación integral en zonas rurales a través de eventos educativos, recursos didácticos y
+          actividades de educación ambiental, fomentando el cuidado del entorno y fortaleciendo la participación de
+          la comunidad en el proceso de enseñanza-aprendizaje.
+        </p>
+        <br>
+        <br>
+        <h3>Visión</h3>
+        <p class="fst-italic">
+          Ser un referente en la mejora de la calidad educativa en áreas rurales, impulsando el desarrollo
+          sostenible y el bienestar comunitario mediante la integración de educación, medio ambiente y participación
+          activa.
+        </p>
+        <a href="#services" class="read-more"><span>Leer más</span><i class="bi bi-arrow-right"></i></a>
+      </div>
+
+    </div>
+
+  </div>
+
+</section><!-- /About Section -->
+
+<!-- Services Section -->
+<section id="services" class="services section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Objetivos</h2>
+    <p>Mejorar la calidad educativa en zonas rurales a través de eventos y actividades que promuevan la enseñanza y
+      el cuidado ambiental, involucrando a la comunidad en el proceso.</p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+
+    <div class="row gy-4">
+
+      <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-item d-flex">
+          <div class="icon flex-shrink-0"><i class="bi bi-briefcase"></i></div>
+          <div>
+            <p class="description">Desarrollar proyectos de investigación, impulsando el aprendizaje y la innovación
+              entre los estudiantes.</p>
+          </div>
+        </div>
+      </div>
+      <!-- End Service Item -->
+
+      <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-item d-flex">
+          <div class="icon flex-shrink-0"><i class="bi bi-card-checklist"></i></div>
+          <div>
+            <p class="description">Proveer recursos didácticos y tecnológicos adaptados a las necesidades de los
+              colegios rurales.</p>
+          </div>
+        </div>
+      </div><!-- End Service Item -->
+
+      <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="service-item d-flex">
+          <div class="icon flex-shrink-0"><i class="bi bi-bar-chart"></i></div>
+          <div>
+            <p class="description">Implementar actividades de educación ambiental que promuevan la sostenibilidad y
+              el cuidado del entorno.</p>
+          </div>
+        </div>
+      </div><!-- End Service Item -->
+
+      <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="400">
+        <div class="service-item d-flex">
+          <div class="icon flex-shrink-0"><i class="bi bi-binoculars"></i></div>
+          <div>
+            <p class="description">Fomentar la participación activa de la comunidad en el proceso educativo.</p>
+          </div>
+        </div>
+      </div><!-- End Service Item -->
+
+      <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="500">
+        <div class="service-item d-flex">
+          <div class="icon flex-shrink-0"><i class="bi bi-brightness-high"></i></div>
+          <div>
+            <p class="description">Contribuir a mejorar la calidad de vida en zonas rurales mediante la educación y
+              el desarrollo de habilidades.</p>
+          </div>
+        </div>
+      </div><!-- End Service Item -->
+
+      <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="600">
+        <div class="service-item d-flex">
+          <div class="icon flex-shrink-0"><i class="bi bi-calendar4-week"></i></div>
+          <div>
+            <p class="description">Promover alianzas con instituciones y organizaciones que faciliten recursos y
+              conocimientos para fortalecer la educación rural.</p>
+          </div>
+        </div>
+      </div><!-- End Service Item -->
+
+    </div>
+
+  </div>
+
+</section><!-- /Services Section -->
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="testimonials section light-background">
+  <div class="container section-title">
+      <h2>Instituciones</h2>
+  </div>
+
+  <div class="container grid">
+      <div *ngFor="let colegio of colegios" class="testimonial-item">
+        <h3>{{ colegio.name }}</h3>
+          <div class="testimonial-img-container">
+              <img src="assets/img/about-removebg-preview.webp"  class="testimonial-img" />
+          </div>
+          <!--- alt="{{ colegio.name }}" --->
+          <p>
+              <i class="bi bi-quote quote-icon-left"></i>
+              Documentamos el proceso de los estudiantes en sus investigaciones, motivándolos a continuar en el ámbito de la ciencia y la innovación, inspirando así a las futuras generaciones.
+              <i class="bi bi-quote quote-icon-right"></i>
+          </p>
+          <h4>{{ colegio.address }}</h4>
+          <h4>{{ colegio.email }}</h4>
+      </div>
+  </div>
+</section>

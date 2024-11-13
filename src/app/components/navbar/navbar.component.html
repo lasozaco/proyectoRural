@@ -1,0 +1,33 @@
+<header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename"><img src="assets/img/AgroTi.webp"></h1>
+      </a>
+
+      <nav id="navmenu" [ngClass]="{ navbar: !isMenuOpenned, 'navbar-mobile': isMenuOpenned }" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Inicio</a></li>
+          <li><a href="#about">Nosotros</a></li>
+          <li><a href="#">Eventos</a></li>
+          <li class="dropdown"><a href="#testimonials"><span>Instituciones</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="#">Institucion Educativa Técnica Ambiental Soledad Medina Sede Principal Rocha - Municipio Chaparral</a></li>
+              <li><a href="#">Institucion Educativa Técnica Ambiental Soledad Medina Sede Línea Diamante - Municipio Chaparral</a></li>
+              <li><a href="#">Institución Educativa Técnica La Leona - Municipio Cajamarca</a></li>
+              <li><a href="#">Institución Educativa Técnica Agropecuaria El Guayabo - Municipio Fresno</a></li>
+              <li><a href="#">Institución Educativa Simón Bolívar - Municipio Guamo</a></li>
+              <li><a href="#">Institución Educativa Técnica Francisco Nuñez Pedroso - Municipio Mariquita</a></li>
+            </ul>
+          </li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list" [ngClass]="{ 'bi-list': !isMenuOpenned, 'bi-x': isMenuOpenned }"
+        (click)="openMobile()"></i>
+      </nav>
+
+      <a class="btn-getstarted" routerLink="/login" routerLinkActive="router-link-active" >Iniciar Sesión</a>
+
+    </div>
+  </header>
