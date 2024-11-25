@@ -1,8 +1,8 @@
+import { Pageable } from './../../utils/Pageable';
 import {Injectable} from '@angular/core';
 import {environment} from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Pageable} from '../../utils/Pageable';
 import Institutions from '../../Models/Institutions';
 
 @Injectable({

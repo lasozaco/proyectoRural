@@ -6,7 +6,7 @@ export interface Pageable<type> {
     last_page: number;
     last_page_url: string;
     links: Links[];
-    next_page_url:string;
+    next_page_url: string;
     per_page: number;
     prev_page_url: number;
     to: number
