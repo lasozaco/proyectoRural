@@ -16,6 +16,6 @@ export class ColegiosService {
     }
 
     getColegios(params: string): Observable<Pageable<Institutions[]>> {
-        return this.httpClient.get<Pageable<Institutions[]>>(this.url + '/institutions' + params);
+        return this.httpClient.get<Pageable<Institutions[]>>(this.url + 'institutions' + params);
     }
 }

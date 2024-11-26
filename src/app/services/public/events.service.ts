@@ -9,11 +9,11 @@ import {HttpClient} from "@angular/common/http";
 })
 export class EventsService {
   url: string
-  constructor(private httpClient: HttpClient) {
+  constructor(private readonly httpClient: HttpClient) {
     this.url = environment.url
   }
 
   getInstitutionById(id: number): Observable<Event[]> {
-    return this.httpClient.get<Event[]>(this.url+/events/+id);
+    return this.httpClient.get<Event[]>(this.url+'events/'+id);
   }
 }

@@ -3,25 +3,26 @@
   <div class="sidebar">
     <h2>Menú</h2>
     <ul>
-      <li><a href="#">Eventos</a></li>
-      <li><a href="#">Fotos</a></li>
-      <li><a href="#">Videos</a></li>
-      <li><a href="#">Reportes</a></li>
-      <li><a href="#">Configuración</a></li>
+      <li><a>Bienvenido(a) {{ institucion.user.name }}</a></li>
+      <li><a (click)="logout()">Cerrar Sesión</a></li>
     </ul>
   </div>
 
   <!-- Contenido principal para administrar multimedia -->
   <div class="main-content">
-    <h2>Administración de Contenido Multimedia</h2>
+    <img src="{{ institucion.logo }}" alt="{{ institucion.description }}">
+    <h2>{{ institucion.name }}</h2>
 
     <!-- Sección para agregar nuevo contenido -->
     <div class="add-content">
       <h3>Agregar Nuevo Contenido</h3>
-      <input type="text" placeholder="Título del evento" />
-      <textarea placeholder="Descripción"></textarea>
-      <input type="file" accept="image/*,video/*" />
-      <button class="add-button">Agregar</button>
+      <form [formGroup]="eventsForm">
+        <input type="text" placeholder="Título del evento" formControlName="title" required="" />
+        <textarea placeholder="Descripción" formControlName="description" required=""></textarea>
+        <button class="add-button" *ngIf="!update" (click)="agregarEvento()">Agregar</button>
+        <button class="add-button" *ngIf="update" (click)="updateEvento()">Actualizar</button>
+        <button class="add-button" *ngIf="update" (click)="cancelUpdate()">Cancelar</button>
+      </form>
     </div>
 
     <!-- Línea divisoria decorativa -->
@@ -32,17 +33,41 @@
       <h3 style="text-align: left;">Contenido Existente</h3>
 
       <!-- Ejemplo de un contenido de tipo video -->
-      <div class="media-item">
-        <h4>Video del Evento de Deportes</h4>
-        <p>Un resumen de los mejores momentos del evento deportivo en el colegio.</p>
-        <video controls>
-          <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4" />
-        </video>
+      <div class="media-item" *ngFor="let event of events">
+        <h4>{{ event.title }}</h4>
+        <p>{{ event.description }}</p>
+        <button class="btn btn-primary" (click)="addMultimedia()">Agregar multimedia</button>
+        <div *ngIf="addMultimdia">
+          <div class="add-content">
+            <form [formGroup]="multimediaForm">
+              <select id="typeSelect" class="form-select" formControlName="type">
+                <option *ngFor="let item of types" [value]="item.value">
+                  {{ item.label }}
+                </option>
+              </select>
+              <input type="url" placeholder="Link del Video/Imagen" formControlName="url">
+              <button class="add-button" *ngIf="addMultimdia" (click)="saveMultimedia(event.id)">Agregar</button>
+              <button class="add-button" *ngIf="addMultimdia" (click)="cancelarMultimedia()">Cancelar</button>
+            </form>
+          </div>
+        </div>
+
+
+        <div *ngFor="let multimedia of event.multimedia">
+          <ul>
+            <li>
+              <p>Tipo {{ multimedia.type }}</p>
+              <a href="{{ multimedia.url }}">Ver enlace</a>
+              <br>
+              <button class="btn btn-danger" (click)="deleteMultimediaById(multimedia)">Eliminar recurso</button>
+            </li>
+          </ul>
+        </div>
 
         <!-- Botones de editar y eliminar -->
         <div class="button-container">
-          <button>Editar</button>
-          <button>Eliminar</button>
+          <button (click)="editEvento(event)">Editar</button>
+          <button (click)="deleteById(event.id!)">Eliminar</button>
         </div>
       </div>
     </div>

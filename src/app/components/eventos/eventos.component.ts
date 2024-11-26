@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {EventsService} from "../../../services/public/events.service";
-import {environment} from "../../../../environments/environment";
+import { EventsService } from '../../services/public/events.service';
+import { environment } from '../../../environments/environment.development';
 
 @Component({
   selector: 'app-eventos',

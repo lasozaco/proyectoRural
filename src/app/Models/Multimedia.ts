@@ -1,8 +1,8 @@
 import Event from "./Event";
 
 export default interface Multimedia{
-    id:number;
+    id?:number;
     type:string;
     url:string;
-    event_id:Event
+    event_id: number;
 }
