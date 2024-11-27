@@ -17,7 +17,6 @@ export class ColegioService {
 
   constructor(private readonly httpClient: HttpClient) {
     this.url = environment.url;
-    this.validateAndDecryptToken();
   }
 
   validateAndDecryptToken() {
@@ -29,6 +28,7 @@ export class ColegioService {
   }
 
   getColegiosByUserAuth(): Observable<Pageable<Institutions[]>> {
+    this.validateAndDecryptToken();
     return this.httpClient.get<Pageable<Institutions[]>>(this.url + 'institution', {
       headers: {
         'Content-Type': 'application/json',
