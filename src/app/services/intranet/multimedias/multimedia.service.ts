@@ -14,7 +14,6 @@ export class MultimediaService {
 
   constructor(private readonly httpClient: HttpClient) {
     this.url = environment.url;
-    this.validateAndDecryptToken();
   }
 
   validateAndDecryptToken() {
@@ -26,6 +25,7 @@ export class MultimediaService {
   }
 
   getAllMultimediaByEvent(multimedia: Multimedia) {
+    this.validateAndDecryptToken();
     this.httpClient.post(this.url + 'multimedia', multimedia, {
       headers: {
         'Content-Type': 'application/json',
@@ -35,6 +35,7 @@ export class MultimediaService {
   }
 
   saveMultimedia(multimedia: Multimedia) {
+    this.validateAndDecryptToken();
     return this.httpClient.post(this.url + 'multimedia', multimedia, {
       headers: {
         'Content-Type': 'application/json',

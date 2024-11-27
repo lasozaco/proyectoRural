@@ -18,7 +18,6 @@ export class EventIntranetService {
     private readonly httpClient: HttpClient
   ) {
     this.url = environment.url;
-    this.validateAndDecryptToken();
   }
 
   validateAndDecryptToken() {
@@ -30,6 +29,7 @@ export class EventIntranetService {
   }
 
   getEventsByInstitucion(): Observable<Pageable<Event[]>> {
+    this.validateAndDecryptToken();
     return this.httpClient.get<Pageable<Event[]>>(this.url + 'event', {
       headers: {
         'Content-Type': 'application/json',
@@ -39,6 +39,7 @@ export class EventIntranetService {
   }
 
   saveEvent(event: Event): Observable<Event> {
+    this.validateAndDecryptToken();
     return this.httpClient.post<Event>(this.url + 'event', event, {
       headers: {
         'Content-Type': 'application/json',
@@ -49,6 +50,7 @@ export class EventIntranetService {
   }
 
   editEvent(event: Event) {
+    this.validateAndDecryptToken();
     return this.httpClient.put(`${this.url}event/${event.id}`, event, {
       headers: {
         'Content-Type': 'application/json',
@@ -58,6 +60,7 @@ export class EventIntranetService {
   }
 
   deleteEventById(id: number) {
+    this.validateAndDecryptToken();
     return this.httpClient.delete(this.url + 'event/' + id, {
       headers: {
         'Content-Type': 'application/json',
