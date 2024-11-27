@@ -3,7 +3,7 @@
   <div class="sidebar">
     <h2>Menú</h2>
     <ul>
-      <li><a>Bienvenido(a) {{ institucion.user.name }}</a></li>
+      <li><a>Bienvenido(a) {{ institucion.user!.name! }}</a></li>
       <li><a (click)="logout()">Cerrar Sesión</a></li>
     </ul>
   </div>
@@ -57,7 +57,7 @@
           <ul>
             <li>
               <p>Tipo {{ multimedia.type }}</p>
-              <a href="{{ multimedia.url }}">Ver enlace</a>
+              <a href="{{ multimedia.url }}" target="_blank">Ver enlace</a>
               <br>
               <button class="btn btn-danger" (click)="deleteMultimediaById(multimedia)">Eliminar recurso</button>
             </li>

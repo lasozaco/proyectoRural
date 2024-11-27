@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import {Observable} from "rxjs";
+import { Observable } from "rxjs";
 import Event from '../../Models/Event'
-import {environment} from "../../../environments/environment";
-import {HttpClient} from "@angular/common/http";
+import { environment } from "../../../environments/environment";
+import { HttpClient } from "@angular/common/http";
+import EventsPublic from '../../Models/EventsPublic';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class EventsService {
     this.url = environment.url
   }
 
-  getInstitutionById(id: number): Observable<Event[]> {
-    return this.httpClient.get<Event[]>(this.url+'events/'+id);
+  getInstitutionById(id: number): Observable<EventsPublic[]> {
+    return this.httpClient.get<EventsPublic[]>(this.url + 'events/' + id);
   }
 }

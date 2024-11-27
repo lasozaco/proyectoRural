@@ -7,7 +7,7 @@ export default interface Institutions{
     email:string;
     logo: string;
     description: string;
-    user: {
+    user?: {
         name: string;
         email: string;
         rol: string;

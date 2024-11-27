@@ -1,18 +1,34 @@
-
 <!-- About Section -->
 <section style="margin-top: 6rem;" id="about" class="about section">
 
   <div class="container">
-  <h1 style="text-align: center; color:#9EC34A">Eventos</h1> <!-- Agregar el nombre de la institucion educativa -->
+    <h1 style="text-align: center; color:#9EC34A">{{ colegioName }}</h1>
+    <!-- Agregar el nombre de la institucion educativa -->
     <div class="row gy-4">
 
       <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
         <img src="assets/img/about-removebg-preview.png" class="img-fluid" alt="">
       </div>
 
-      <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200"> <!-- realizar un for que recorra el array events -->
-        <h3>Evento 1</h3><!-- Colocar el titulo del evento -->
-        <p class="fst-italic">
-          Se mostraran todos los eventos realizados fomentando el desarrollo, la investigacion y la sostenibilidad. <!-- colocar la descripcion del evento -->
-        </p>
+      <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
+        <!-- realizar un for que recorra el array events -->
+        <h2>Eventos </h2><!-- Colocar el titulo del evento -->
+
+        <div class="card" *ngFor="let event of events">
+          <div class="card-body">
+            <h3>{{ event.title }}</h3>
+            <p class="fst-italic">
+              {{ event.description }}
+            </p>
+            <div class="card-body" *ngFor="let multi of event.multimedia">
+              <div *ngIf="multi.type=='Image'">
+                <img src="{{ multi.url }}" alt="" width="320" height="240">
+              </div>
+              <div *ngIf="multi.type=='Video'">
+                <a class="btn btn-check" href="{{ multi.url }}" >Ver video</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
