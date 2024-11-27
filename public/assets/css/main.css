@@ -489,14 +489,7 @@ h6 {
 /*--------------------------------------------------------------
 # Global Footer
 --------------------------------------------------------------*/
-.footer {
-  color: var(--default-color);
-  background: linear-gradient(45deg, var(--background-color) 0%, color-mix(in srgb, var(--surface-color), transparent 10%) 100%), url("../img/footer-bg.jpg") center center no-repeat;
-  background-size: cover;
-  font-size: 14px;
-  padding-bottom: 50px;
-  position: relative;
-}
+
 
 .footer .footer-top {
   padding-top: 50px;
@@ -720,16 +713,6 @@ section,
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
-.hero {
-  width: 100%;
-  min-height: 100vh;
-  position: relative;
-  padding: 120px 0 60px 0;
-  display: flex;
-  align-items: center;
-  background: linear-gradient(45deg, var(--background-color) 0%, color-mix(in srgb, var(--surface-color), transparent 10%) 100%), url("../img/hero-bg.jpg") center center no-repeat;
-  background-size: cover;
-}
 
 .hero h1 {
   margin: 0;
@@ -938,7 +921,25 @@ section,
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   position: relative;
-  min-height: 250px;
+  min-height: 300px;
+  text-align: center;
+}
+
+/* Contenedor de la imagen circular */
+.testimonials .testimonial-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.testimonials .testimonial-img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .testimonials .testimonial-item p {
@@ -948,15 +949,17 @@ section,
 }
 
 .testimonials .testimonial-item h3 {
-  font-size: 18px;
+  font-size: 25px;
   font-weight: bold;
-  margin-top: 15px;
+  margin-top: 10px;
+  color: var(--accent-color);
 }
 
 .testimonials .testimonial-item h4 {
   font-size: 14px;
   color: #6c757d;
   margin-top: 5px;
+  text-align: justify;
 }
 
 .testimonials .quote-icon-left,

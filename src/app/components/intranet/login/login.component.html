@@ -1,20 +1,29 @@
+<body>
+    <div class="wrapper">
+        <form [formGroup]="loginForm" >
+            <h2>Inicio de Sesión</h2>
+            <div class="input-field">
+                <input type="text" formControlName="user" required>
+                <label>Usuario</label>
+                <div *ngIf="loginForm.get('user')?.touched && loginForm.get('user')?.invalid">
+                    <small *ngIf="loginForm.get('user')?.hasError('required')">El usuario es obligatorio.</small>
+                    <small *ngIf="loginForm.get('user')?.hasError('minlength')">Debe tener al menos 4
+                        caracteres.</small>
+                </div>
+            </div>
+            <div class="input-field">
+                <input type="password" formControlName="password" required>
+                <label>Contraseña</label>
+                <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+                    <small *ngIf="loginForm.get('password')?.hasError('required')">La contraseña es
+                        obligatoria.</small>
+                    <small *ngIf="loginForm.get('password')?.hasError('minlength')">Debe tener al menos 6
+                        caracteres.</small>
+                </div>
+            </div>
 
-   <body>
-        <div class="wrapper">
-            <form action="#">
-                <h2>Inicio de Sesión</h2>
-                <div class="input-field">
-                    <input type="text" required>
-                    <label>Usuario</label>
-                </div>
-                <div class="input-field">
-                    <input type="password" required>
-                    <label>Contraseña</label>
-                </div>
-               
-                <button type="submit">Ingresar</button>
-                
-            </form>
-        </div>
-    </body>
-    
+            <button type="submit" (click)="onSubmit()" [disabled]="loginForm.invalid">Ingresar</button>
+
+        </form>
+    </div>
+</body>

@@ -1,0 +1,227 @@
+/* dashboard.component.css */
+
+/* Contenedor general */
+.container.dashboard {
+  display: flex;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+/* Menú lateral */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100vh;
+  background-color: #9EC34A; /* Color verde para el menú lateral */
+  color: white;
+  padding: 30px;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+/* Estilo de los elementos del menú (separados por líneas) */
+.sidebar ul {
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar ul li {
+  margin-bottom: 12px; /* Separación entre los elementos */
+  position: relative;
+}
+
+/* Línea separadora entre los elementos */
+.sidebar ul li::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #ffffff; /* Línea blanca para contraste */
+  opacity: 0.4;
+}
+
+/* Eliminar la línea para el último elemento */
+.sidebar ul li:last-child::after {
+  display: none;
+}
+
+/* Estilo de los links dentro del menú */
+.sidebar ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.2em;
+  display: block;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover para los elementos del menú */
+.sidebar ul li a:hover {
+  background-color: #4A7729; /* Se oscurece el fondo */
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2); /* Añadir sombra para el efecto de resaltar */
+}
+
+/* Línea horizontal separadora entre el menú y el contenido */
+.line-divider {
+  position: absolute;
+  top: 0; /* Desde la parte superior del contenido */
+  left: 0;
+  width: 220px; /* A la altura del menú lateral */
+  height: 2px;
+  background-color: #ffffff; /* Línea blanca para contrastar */
+  z-index: 5;
+}
+
+/* Contenido principal */
+.main-content {
+  margin-left: 240px; /* Para hacer espacio por el menú lateral */
+  padding: 30px;
+  width: calc(100% - 240px);
+  background-color: #f9f9f9;
+  overflow: auto;
+  z-index: 1;
+  position: relative;
+  margin-top: 100px; /* Se ajusta el margen superior para mayor separación del navbar */
+}
+
+/* Títulos y subtítulos */
+h2 {
+  margin-top: 0;
+  font-size: 2.5em;
+  margin-bottom: 40px;
+  font-weight: bold;
+  text-align: center; /* Centrado del título */
+}
+
+h3 {
+  font-size: 2em;
+  margin-top: 20px; /* Menos espacio arriba */
+  margin-bottom: 15px;
+  font-weight: 600;
+  text-align: center; /* Centrado del subtítulo */
+  color: #333; /* Color oscuro para que contraste con el fondo */
+}
+
+/* Sección de agregar contenido */
+.add-content {
+  background-color: #e5f4c7; /* Tono suave de verde */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 700px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid #9EC34A; /* Borde verde para hacerla armoniosa */
+}
+
+/* Estilos de los inputs, textarea y botón */
+.add-content input[type="text"],
+.add-content textarea,
+.add-content input[type="file"] {
+  display: block;
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 12px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-button {
+  padding: 12px 24px;
+  background-color: #9EC34A; /* El mismo verde que el menú lateral */
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: #7a9c34; /* Un verde más oscuro al hacer hover */
+}
+
+/* Título de Contenido Existente alineado a la izquierda */
+.content-list h3 {
+  font-size: 2em;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-weight: 600;
+  text-align: left; /* Alineación a la izquierda */
+  color: #333;
+}
+
+/* Estilo de los ítems de contenido */
+.media-item {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 15px;
+  background-color: #fff;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.media-item h4 {
+  margin-top: 0;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.media-item p {
+  margin-top: 10px;
+  font-size: 1.1em;
+  color: #555;
+}
+
+.media-item video {
+  max-width: 100%;
+  height: auto;
+  margin-top: 15px;
+  border-radius: 5px;
+}
+
+/* Contenedor para los botones de edición y eliminación */
+.media-item .button-container {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Estilo de los botones de eliminar y editar */
+.media-item button {
+  padding: 10px 20px;
+  background-color: #4A7729;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.media-item button:hover {
+  background-color: #3d5f20;
+}
+
+.section-divider {
+  width: 60%;
+  margin: 30px auto;
+  border: none;
+  height: 3px;
+  background: linear-gradient(to right, #9EC34A, #4A7729, #9EC34A); /* Gradiente en tonos verdes */
+  border-radius: 5px;
+}
