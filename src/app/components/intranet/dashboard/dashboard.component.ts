@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import Institutions from '../../../Models/Institutions';
 import { ColegioService } from '../../../services/intranet/colegios/colegio.service';
 import { LoginService } from '../../../services/intranet/login/login.service';
@@ -30,7 +29,6 @@ export class DashboardComponent implements OnInit {
   eventsForm: FormGroup;
   multimediaForm: FormGroup;
   update: boolean = false;
-  addMultimdia: boolean = false;
 
   events: any[] = [];
   eventUpdate: Event = {
@@ -38,6 +36,9 @@ export class DashboardComponent implements OnInit {
     title: '',
     description: '',
   }
+
+  // Nuevo estado de multimedia para cada evento
+  addMultimediaState: { [key: number]: boolean } = {};
 
   constructor(
     private readonly colegioService: ColegioService,
@@ -54,17 +55,26 @@ export class DashboardComponent implements OnInit {
     this.multimediaForm = this.fb.group({
       type: ['', [Validators.required, Validators.minLength(3)]],
       url: ['', [Validators.required, Validators.minLength(10)]],
-    })
+    });
   }
+
   ngOnInit(): void {
     this.getColegio();
     this.getAllEvents();
   }
 
+  // Función para activar o desactivar el formulario de multimedia para un evento específico
+  toggleMultimedia(eventId: number) {
+    this.addMultimediaState[eventId] = !this.addMultimediaState[eventId];
+    if (this.addMultimediaState[eventId]) {
+      this.multimediaForm.reset();
+    }
+  }
+
   async getColegio() {
     this.colegioService.getColegiosByUserAuth().subscribe({
       next: (res) => {
-        this.institucion = res.data[0]
+        this.institucion = res.data[0];
       },
     })
   }
@@ -72,7 +82,6 @@ export class DashboardComponent implements OnInit {
   async getAllEvents() {
     this.eventService.getEventsByInstitucion().subscribe({
       next: (res) => {
-        console.log(res.data)
         this.events = res.data;
       }
     })
@@ -110,7 +119,6 @@ export class DashboardComponent implements OnInit {
   }
 
   updateEvento() {
-
     this.eventUpdate = {
       id: this.eventUpdate.id!,
       title: this.eventsForm.get('title')?.value,
@@ -167,22 +175,12 @@ export class DashboardComponent implements OnInit {
         Swal.fire({
           position: 'center',
           icon: 'error',
-          title: 'Error al eliminar el evento.',
+          title: 'Error al eliminar el evento!',
           showConfirmButton: false,
           timer: 1500
         });
       }
     })
-  }
-
-  addMultimedia() {
-    this.addMultimdia = true;
-    this.multimediaForm.reset();
-  }
-
-  cancelarMultimedia() {
-    this.addMultimdia = false;
-    this.multimediaForm.reset();
   }
 
   saveMultimedia(id: number) {
@@ -203,14 +201,18 @@ export class DashboardComponent implements OnInit {
         });
         this.events = [];
         this.getAllEvents();
-        this.addMultimdia = false;
+        this.addMultimediaState[id] = false; // Cerrar el formulario al agregar multimedia
       }
     });
   }
 
-  deleteMultimediaById(multimedia: Multimedia) {
-    console.log(multimedia)
-    this.multimediaService.deleteMultimedia(multimedia.id!).subscribe({
+  cancelarMultimedia(eventId: number) {
+    this.addMultimediaState[eventId] = false;
+    this.multimediaForm.reset();
+  }
+
+  deleteMultimediaById(multimediaId: number) {
+    this.multimediaService.deleteMultimedia(multimediaId).subscribe({
       next: () => {
         Swal.fire({
           position: 'center',
@@ -221,21 +223,12 @@ export class DashboardComponent implements OnInit {
         });
         this.events = [];
         this.getAllEvents();
-        this.addMultimdia = false;
       }
     })
   }
 
   logout() {
     this.loginService.logout();
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Sesion cerrada!',
-      showConfirmButton: false,
-      timer: 1500
-    });
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
   }
-
 }
