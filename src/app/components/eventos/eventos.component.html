@@ -1,34 +1,54 @@
 <!-- About Section -->
 <section style="margin-top: 6rem;" id="about" class="about section">
-
   <div class="container">
-    <h1 style="text-align: center; color:#9EC34A">{{ colegioName }}</h1>
-    <!-- Agregar el nombre de la institucion educativa -->
-    <div class="row gy-4">
+    <!-- Header de la Institución -->
+    <div class="institution-header text-center">
+      <!-- Nombre de la Institución -->
+      <h2 class="institution-name">{{ colegioName }}</h2>
+      <!-- Logo de la Institución -->
+      <img *ngIf="colegioLogo" [src]="colegioLogo" alt="Logo de la institución" class="institution-logo">
+    </div>
+    <!-- Línea divisora -->
+    <div class="institution-divider"></div>
 
-      <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
-        <img src="assets/img/about-removebg-preview.png" class="img-fluid" alt="">
-      </div>
+    <!-- Sección de eventos -->
+    <div class="row gy-4 justify-content-center"> <!-- Centrado horizontal -->
+      <div class="col-lg-6 order-2 order-lg-1 content text-center" data-aos="fade-up" data-aos-delay="200">
+        <h2>Eventos</h2>
+        <!-- Línea divisora -->
+        <div class="institution-divider2"></div>
 
-      <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
-        <!-- realizar un for que recorra el array events -->
-        <h2>Eventos </h2><!-- Colocar el titulo del evento -->
-
+        <!-- Lista de eventos -->
         <div class="card" *ngFor="let event of events">
-          <div class="card-body">
+          <div class="card-body text-center"> <!-- Centrado del contenido dentro de la tarjeta -->
             <h3>{{ event.title }}</h3>
-            <p class="fst-italic">
-              {{ event.description }}
-            </p>
+            <p class="fst-italic">{{ event.description }}</p>
+            
             <div class="card-body" *ngFor="let multi of event.multimedia">
-              <div *ngIf="multi.type=='Image'">
-                <img src="{{ multi.url }}" alt="" width="320" height="240">
+              <!-- Mostrar imágenes -->
+              <div class="event-media img">
+              <div *ngIf="multi.type == 'Image'" class="text-center">
+                <img [src]="multi.url" alt="Imagen del evento" width="420" height="340">
               </div>
-              <div *ngIf="multi.type=='Video'">
-                <a class="btn btn-check" href="{{ multi.url }}" >Ver video</a>
+            </div>
+
+              <!-- Mostrar videos incrustados -->
+              <div class="media-video iframe">
+              <div *ngIf="multi.type == 'Video'" class="text-center">
+                <iframe
+                  [src]="convertToEmbedUrl(multi.url)"
+                  width="560"
+                  height="315"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+              </div>
               </div>
             </div>
           </div>
         </div>
-
       </div>
+    </div>
+  </div>
+</section>
