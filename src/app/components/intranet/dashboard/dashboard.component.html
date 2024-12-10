@@ -3,7 +3,8 @@
   <div class="sidebar">
     <h2>Menú</h2>
     <ul>
-      <li><a>Bienvenido(a) {{ institucion.user!.name! }}</a></li>
+      <!-- Verificación segura de institucion y user -->
+      <li><a *ngIf="institucion?.user">Bienvenido(a) {{ institucion?.user?.name }}</a></li>
       <li><a (click)="logout()">Cerrar Sesión</a></li>
     </ul>
   </div>
@@ -12,16 +13,16 @@
   <div class="main-content">
     <!-- Header de la institución -->
     <div class="institution-header">
-      <img src="{{ institucion.logo }}" alt="{{ institucion.description }}" class="institution-logo">
-      <h2 class="institution-name">{{ institucion.name }}</h2>
+      <img src="{{ institucion?.logo }}" alt="{{ institucion?.description }}" class="institution-logo">
+      <h2 class="institution-name">{{ institucion?.name }}</h2>
     </div>
 
     <!-- Sección para agregar nuevo contenido -->
     <div class="add-content">
       <h3>Agregar Nuevo Contenido</h3>
       <form [formGroup]="eventsForm">
-        <input type="text" placeholder="Título del evento" formControlName="title" required="" />
-        <textarea placeholder="Descripción" formControlName="description" required=""></textarea>
+        <input type="text" placeholder="Título del evento" formControlName="title" required />
+        <textarea placeholder="Descripción" formControlName="description" required></textarea>
         <button class="add-button" *ngIf="!update" (click)="agregarEvento()">Agregar</button>
         <button class="add-button" *ngIf="update" (click)="updateEvento()">Actualizar</button>
         <button class="add-button" *ngIf="update" (click)="cancelUpdate()">Cancelar</button>
@@ -35,13 +36,13 @@
     <div class="content-list">
       <h3>Contenido Existente</h3>
 
-      <div class="media-item" *ngFor="let event of events" style="text-align: center;">
-        <h4>{{ event.title }}</h4>
-        <p>{{ event.description }}</p>
-        <button class="btn btn-primary" (click)="toggleMultimedia(event.id)">Agregar multimedia</button>
+      <div class="media-item" *ngFor="let event of events || []" style="text-align: center;">
+        <h4>{{ event?.title }}</h4>
+        <p>{{ event?.description }}</p>
+        <button class="btn btn-primary" (click)="toggleMultimedia(event?.id)">Agregar multimedia</button>
         
         <!-- Formulario de multimedia -->
-        <div *ngIf="addMultimediaState[event.id]">
+        <div *ngIf="addMultimediaState[event?.id]">
           <div class="add-content">
             <form [formGroup]="multimediaForm">
               <div class="type-container">
@@ -53,23 +54,23 @@
                 </select>
               </div>
               <input type="url" placeholder="Link del Video/Imagen" formControlName="url">
-              <button class="add-button" (click)="saveMultimedia(event.id)">Agregar</button>
-              <button class="add-button" (click)="cancelarMultimedia(event.id)">Cancelar</button>
+              <button class="add-button" (click)="saveMultimedia(event?.id)" [disabled]="multimediaForm.invalid">Agregar</button>
+              <button class="add-button" (click)="cancelarMultimedia(event?.id)">Cancelar</button>
             </form>
           </div>
         </div>
 
         <!-- Contenedor para multimedia dentro de tarjetas -->
-        <div *ngFor="let multimedia of event.multimedia" class="media-card-container">
+        <div *ngFor="let multimedia of event?.multimedia || []" class="media-card-container">
           <div class="media-card">
             <ul>
               <li>
                 <p>Tipo: 
-                  <span class="multimedia-type">{{ multimedia.type === 'Image' ? 'Imagen' : 'Video' }}</span>
+                  <span class="multimedia-type">{{ multimedia?.type === 'Image' ? 'Imagen' : 'Video' }}</span>
                 </p>
-                <a href="{{ multimedia.url }}" target="_blank" class="view-link">Ver enlace</a>
+                <a href="{{ multimedia?.url }}" target="_blank" class="view-link">Ver enlace</a>
                 <br>
-                <button class="btn btn-danger" (click)="deleteMultimediaById(multimedia)">Eliminar recurso</button>
+                <button class="btn btn-danger" (click)="deleteMultimediaById(multimedia?.id)">Eliminar recurso</button>
               </li>
             </ul>
           </div>
@@ -78,7 +79,7 @@
         <!-- Botones de editar y eliminar -->
         <div class="button-container" style="display: flex; justify-content: center; gap: 15px; margin-top: 20px;">
           <button class="btn btn-info" (click)="editEvento(event)">Editar</button>
-          <button class="btn btn-danger" (click)="deleteById(event.id!)">Eliminar</button>
+          <button class="btn btn-danger" (click)="deleteById(event?.id)">Eliminar</button>
         </div>
       </div>
     </div>
