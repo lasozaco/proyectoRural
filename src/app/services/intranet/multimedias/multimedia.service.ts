@@ -45,6 +45,7 @@ export class MultimediaService {
   }
 
   deleteMultimedia(id: number) {
+    this.validateAndDecryptToken();
     return this.httpClient.delete(this.url + 'multimedia/' + id, {
       headers: {
         'Content-Type': 'application/json',
