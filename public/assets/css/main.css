@@ -196,6 +196,22 @@ h6 {
   border-color: var(--contrast-color);
 }
 
+@media (max-width: 1200px) {
+  .header .logo {
+    order: 1;
+  }
+
+  .header .btn-getstarted {
+    order: 2;
+    margin: 0 15px 0 0;
+    padding: 6px 15px;
+  }
+
+  .header .navmenu {
+    order: 3;
+  }
+}
+
 .scrolled .header {
   box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
 }
@@ -940,17 +956,12 @@ section,
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   position: relative;
-  min-height: 400px; /* Altura mínima para uniformidad */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  min-height: 300px;
   text-align: center;
 }
 
 /* Contenedor de la imagen circular */
 .testimonials .testimonial-img-container {
-  width: 100%;
-  height: 200px; /* Altura fija para las imágenes */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -958,39 +969,32 @@ section,
 }
 
 .testimonials .testimonial-img {
-  width: 200px; /* Tamaño fijo para las imágenes */
-  height: 200px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--accent-color);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.testimonials .testimonial-item h3 {
-  font-size: 25px;
-  font-weight: bold;
-  margin: 10px 0;
-  color: var(--accent-color);
-}
-
 .testimonials .testimonial-item p {
   font-style: italic;
   font-size: 15px;
   margin-bottom: 20px;
-  text-align: center; /* Asegura que el texto esté centrado */
+}
+
+.testimonials .testimonial-item h3 {
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: var(--accent-color);
 }
 
 .testimonials .testimonial-item h4 {
   font-size: 14px;
   color: #6c757d;
-  margin: 5px 0;
-  text-align: center; /* Alinea la información de contacto */
-}
-
-.testimonials .testimonial-item .btn {
-  margin-top: auto; /* Empuja el botón hacia la parte inferior */
-  width: 100%;
-  max-width: 200px; /* Ancho máximo para el botón */
+  margin-top: 5px;
+  text-align: justify;
 }
 
 .testimonials .quote-icon-left,
@@ -1004,7 +1008,7 @@ section,
   bottom: 20px;
   right: 20px;
   transform: scale(-1, -1);
-}
+} 
 
 /*--------------------------------------------------------------
 # Service Details Section
