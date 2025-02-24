@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="col-lg-6 order-1 order-lg-2 hero-img">
-        <img src="assets/img/Colage.jpg" class="img-fluid animated" alt="">
+        <img src="assets/img/Colage.webp" class="img-fluid animated" alt="">
       </div>
     </div>
   </div>
@@ -29,7 +29,7 @@
     <div class="row gy-4">
 
       <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
-        <img src="assets/img/about-removebg-preview.png" class="img-fluid" alt="">
+        <img src="assets/img/about-removebg-preview.webp" class="img-fluid" alt="">
       </div>
 
       <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
@@ -138,81 +138,27 @@
 
 <!-- Testimonials Section -->
 <section id="testimonials" class="testimonials section light-background">
-  <!-- Section Title -->
   <div class="container section-title">
-    <h2>Instituciones</h2>
-  </div><!-- End Section Title -->
+      <h2>Instituciones</h2>
+  </div>
 
   <div class="container grid">
-    <!-- Institución 1 -->
-    <div class="testimonial-item">
-      <p>
-        <i class="bi bi-quote quote-icon-left"></i>
-        Documentamos el proceso de los estudiantes en sus investigaciones, motivándolos a continuar en el ámbito de la
-        ciencia y la innovación, inspirando así a las futuras generaciones.
-        <i class="bi bi-quote quote-icon-right"></i>
-      </p>
-      <h3>Institución Educativa Técnica Ambiental Soledad Medina Sede Rocha</h3>
-      <h4>Municipio Chaparral</h4>
-    </div>
-
-    <!-- Institución 2 -->
-    <div class="testimonial-item">
-      <p>
-        <i class="bi bi-quote quote-icon-left"></i>
-        Narramos las experiencias que fortalecen el desarrollo educativo en Chaparral. Podemos evidenciar cómo nuestra
-        institución contribuye a construir una comunidad unida y comprometida con el futuro.
-        <i class="bi bi-quote quote-icon-right"></i>
-      </p>
-      <h3>Institución Educativa Técnica Ambiental Soledad Medina Sede Línea Diamante</h3>
-      <h4>Municipio Chaparral</h4>
-    </div>
-
-    <!-- Institución 3 -->
-    <div class="testimonial-item">
-      <p>
-        <i class="bi bi-quote quote-icon-left"></i>
-        Ofrecemos una educación integral en Cajamarca, donde el aprendizaje práctico se combina con un enfoque académico
-        riguroso, respetando tradiciones locales y el medio ambiente.
-        <i class="bi bi-quote quote-icon-right"></i>
-      </p>
-      <h3>Institución Educativa Técnica La Leona</h3>
-      <h4>Municipio Cajamarca</h4>
-    </div>
-
-    <!-- Institución 4 -->
-    <div class="testimonial-item">
-      <p>
-        <i class="bi bi-quote quote-icon-left"></i>
-        Mostramos cómo un enfoque educativo innovador impulsa proyectos que integran la sostenibilidad y el cuidado
-        ambiental, fomentando una comunidad más consciente y responsable. <i class="bi bi-quote quote-icon-right"></i>
-      </p>
-      <h3>Institución Educativa Técnica Agropecuaria El Guayabo</h3>
-      <h4>Municipio Fresno</h4>
-    </div>
-
-    <!-- Institución 5 -->
-    <div class="testimonial-item">
-      <p>
-        <i class="bi bi-quote quote-icon-left"></i>
-        Nos enfocamos en la excelencia educativa, promoviendo valores como la libertad y el respeto. Los estudiantes
-        desarrollan habilidades para enfrentar los desafíos del mundo actual.
-        <i class="bi bi-quote quote-icon-right"></i>
-      </p>
-      <h3>Institución Educativa Simón Bolívar</h3>
-      <h4>Municipio Guamo</h4>
-    </div>
-
-    <!-- Institución 6 -->
-    <div class="testimonial-item">
-      <p>
-        <i class="bi bi-quote quote-icon-left"></i>
-        Capturamos momentos que destacan la esencia de nuestra comunidad en Mariquita, mostrando a través de imágenes
-        cómo impactamos positivamente en la vida de nuestros estudiantes y familias.
-        <i class="bi bi-quote quote-icon-right"></i>
-      </p>
-      <h3>Institución Educativa Técnica Francisco Nuñez Pedroso</h3>
-      <h4>Municipio Mariquita</h4>
-    </div>
+      <div *ngFor="let colegio of colegios" class="testimonial-item">
+        <h3>{{ colegio.name }}</h3>
+          <div class="testimonial-img-container">
+              <img src="{{colegio.logo}}"  class="testimonial-img" />
+          </div>
+          <!--- alt="{{ colegio.name }}" --->
+          <p>
+              <i class="bi bi-quote quote-icon-left"></i>
+              {{colegio.description}}
+              <i class="bi bi-quote quote-icon-right"></i>
+          </p>
+          <h4>{{ colegio.address }}</h4>
+          <h4>{{ colegio.email }}</h4>
+          <div >
+              <button class="btn btn-primary" routerLink="/events/{{ colegio.id }}">Eventos</button>
+          </div>
+      </div>
   </div>
 </section>

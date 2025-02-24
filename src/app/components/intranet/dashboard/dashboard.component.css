@@ -1,0 +1,258 @@
+/* Contenedor general */
+.container.dashboard {
+  display: flex;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+/* Menú lateral */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100vh;
+  background-color: #9EC34A; /* Verde principal */
+  color: white;
+  padding: 30px;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  
+}
+
+.sidebar ul {
+  padding: 0;
+  list-style: none;
+  padding-top: 10px;
+}
+
+.sidebar ul li {
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.sidebar ul li::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #ffffff;
+  opacity: 0.4;
+}
+
+.sidebar ul li:last-child::after {
+  display: none;
+}
+
+.sidebar ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.1em;
+  display: block;
+  padding: 15px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  white-space: normal;
+  word-wrap: break-word;
+  margin: 10px 0;
+}
+
+.sidebar ul li a:hover {
+  background-color: #4A7729; /* Verde más suave */
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenido principal */
+.main-content {
+  margin-left: 280px;
+  padding: 30px;
+  width: calc(100% - 240px);
+  background-color: #f9f9f9;
+  overflow: auto;
+  z-index: 1;
+  position: relative;
+  margin-top: 120px;
+}
+
+/* Header de la institución */
+.institution-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.institution-logo {
+  width: 70px;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.institution-name {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #4A7729;
+  word-wrap: break-word;
+}
+
+/* Títulos y subtítulos */
+h2 {
+  font-size: 2.5em;
+  font-weight: bold;
+  text-align: center;
+}
+
+h3 {
+  font-size: 2em;
+  text-align: center;
+  color: #333;
+}
+
+/* Sección de agregar contenido */
+.add-content {
+  background-color: #e5f4c7;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  margin: 20px auto;
+  border: 2px solid #9EC34A;
+}
+
+.add-content input[type="text"],
+.add-content textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-button {
+  padding: 12px 24px;
+  background-color: #4A7729; 
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
+  margin: 10px;
+}
+
+.add-button:hover {
+  background-color: #356b29; /* Azul más oscuro al hacer hover */
+}
+
+/* Mejorando el aspecto de los selectores de tipo multimedia */
+.type-container {
+  margin-bottom: 20px;
+}
+
+.type-container select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #9EC34A;
+}
+
+/* Contenedor para elementos multimedia */
+.media-item {
+  background-color: #f2f2f2;
+  margin-bottom: 30px;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.media-card-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.media-card {
+  background-color: #ffffff;
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  width: 45%; /* Modificado para que no ocupe todo el ancho */
+  transition: box-shadow 0.3s ease;
+}
+.media-card ul li {
+  margin-bottom: 15px; /* Espacio entre los elementos de la lista */
+}
+
+.media-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.view-link {
+  color: #4A7729;
+  font-weight: bold;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+  display: block;
+  margin: top 10px;
+}
+
+.view-link:hover {
+  color: #356b29;
+}
+
+/* Etiqueta de tipo multimedia */
+.multimedia-type {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: #d1f8e2;
+  border-radius: 12px;
+  color: #4A7729;
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 1.1em;
+}
+
+/* Botones */
+.btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1em;
+}
+
+.btn-primary {
+  background-color: #87CEEB;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #4682B4;
+}
+
+.btn-info {
+  background-color: #8bc34a;
+  color: white;
+}
+
+.btn-info:hover {
+  background-color: #1976d2;
+}
+
+.btn-danger {
+  background-color: #f44336;
+  color: white;
+  margin-top: 10px;
+}
+
+.btn-danger:hover {
+  background-color: #d32f2f;
+}
