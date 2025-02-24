@@ -1,8 +1,11 @@
-<!-- Hero Section // Sebas -->
+<!-- 
+  SECCIÓN HERO - Cabecera principal 
+  Contiene título, descripción, imagen y botón de acción
+-->
 <section id="hero" class="hero section accent-background">
-
   <div class="container">
     <div class="row gy-4">
+      <!-- Columna de texto (orden cambia en móvil) -->
       <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
         <h1>Ecosistema del Futuro</h1>
         <p>Nos enfocamos en desarrollar proyectos con instituciones rurales, incluyendo actividades como Bootcamp,
@@ -10,28 +13,36 @@
           promoviendo la conciencia ecológica, incluyendo a los estudiantes a semilleros de investigación con
           proyectos sostenibles y fortaleciendo sus habilidades para proteger el entorno natural.</p>
         <div class="d-flex">
+          <!-- Botón que enlaza a la sección About -->
           <a href="#about" class="btn-get-started">Descubre más</a>
         </div>
       </div>
-      <div class="col-lg-6 order-1 order-lg-2 hero-img">
-        <img src="assets/img/Colage.webp" class="img-fluid animated" alt="">
-      </div>
+
+      <!-- Carrusel de imagenes -->
+      <div class="col-lg-6 order-1 order-lg-2 hero-img carousel">
+        <img src="assets/img/Estudiante1.webp" class="img-fluid" alt="">
+        <img src="assets/img/Estudiante2.webp" class="img-fluid" alt="">
+        <img src="assets/img/Estudiantes.webp" class="img-fluid" alt="">
+        <img src="assets/img/Estudiantes2.webp" class="img-fluid" alt="">
+        <img src="assets/img/Estudiantes3.webp" class="img-fluid" alt="">
+      </div>      
     </div>
   </div>
-
 </section><!-- /Hero Section -->
 
-<!-- About Section -->
+<!-- 
+  SECCIÓN ABOUT - Misión y Visión 
+  Diseño responsive con imagen y texto alternados
+-->
 <section id="about" class="about section">
-
   <div class="container">
-
     <div class="row gy-4">
-
+      <!-- Imagen con animación AOS -->
       <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
         <img src="assets/img/about-removebg-preview.webp" class="img-fluid" alt="">
       </div>
 
+      <!-- Contenido textual -->
       <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
         <h3>Misión</h3>
         <p class="fst-italic">
@@ -47,29 +58,29 @@
           sostenible y el bienestar comunitario mediante la integración de educación, medio ambiente y participación
           activa.
         </p>
+        <!-- Enlace a siguiente sección -->
         <a href="#services" class="read-more"><span>Leer más</span><i class="bi bi-arrow-right"></i></a>
       </div>
-
     </div>
-
   </div>
-
 </section><!-- /About Section -->
 
-<!-- Services Section -->
+<!-- 
+  SECCIÓN OBJETIVES - Objetivos principales 
+  Grid responsive con iconos y descripciones
+-->
 <section id="services" class="services section">
-
-  <!-- Section Title -->
+  <!-- Título de sección -->
   <div class="container section-title" data-aos="fade-up">
     <h2>Objetivos</h2>
     <p>Mejorar la calidad educativa en zonas rurales a través de eventos y actividades que promuevan la enseñanza y
       el cuidado ambiental, involucrando a la comunidad en el proceso.</p>
   </div><!-- End Section Title -->
 
+  <!-- Grid de objetivos -->
   <div class="container">
-
     <div class="row gy-4">
-
+      <!-- Item de servicio individual -->
       <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="100">
         <div class="service-item d-flex">
           <div class="icon flex-shrink-0"><i class="bi bi-briefcase"></i></div>
@@ -81,6 +92,7 @@
       </div>
       <!-- End Service Item -->
 
+      <!-- Item de servicio individual -->
       <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="200">
         <div class="service-item d-flex">
           <div class="icon flex-shrink-0"><i class="bi bi-card-checklist"></i></div>
@@ -91,6 +103,7 @@
         </div>
       </div><!-- End Service Item -->
 
+      <!-- Item de servicio individual -->
       <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="300">
         <div class="service-item d-flex">
           <div class="icon flex-shrink-0"><i class="bi bi-bar-chart"></i></div>
@@ -101,6 +114,7 @@
         </div>
       </div><!-- End Service Item -->
 
+      <!-- Item de servicio individual -->
       <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="400">
         <div class="service-item d-flex">
           <div class="icon flex-shrink-0"><i class="bi bi-binoculars"></i></div>
@@ -110,6 +124,7 @@
         </div>
       </div><!-- End Service Item -->
 
+      <!-- Item de servicio individual -->
       <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="500">
         <div class="service-item d-flex">
           <div class="icon flex-shrink-0"><i class="bi bi-brightness-high"></i></div>
@@ -120,6 +135,7 @@
         </div>
       </div><!-- End Service Item -->
 
+      <!-- Item de servicio individual -->
       <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="600">
         <div class="service-item d-flex">
           <div class="icon flex-shrink-0"><i class="bi bi-calendar4-week"></i></div>
@@ -129,36 +145,41 @@
           </div>
         </div>
       </div><!-- End Service Item -->
-
     </div>
-
   </div>
-
 </section><!-- /Services Section -->
 
-<!-- Testimonials Section -->
+<!-- 
+  SECCIÓN TESTIMONIOS - Instituciones colaboradoras 
+  Muestra dinámica usando Angular
+-->
 <section id="testimonials" class="testimonials section light-background">
+  <!-- Título de sección -->
   <div class="container section-title">
-      <h2>Instituciones</h2>
+    <h2>Instituciones</h2>
   </div>
 
+  <!-- Grid dinámico de instituciones -->
   <div class="container grid">
-      <div *ngFor="let colegio of colegios" class="testimonial-item">
-        <h3>{{ colegio.name }}</h3>
-          <div class="testimonial-img-container">
-              <img src="{{colegio.logo}}"  class="testimonial-img" />
-          </div>
-          <!--- alt="{{ colegio.name }}" --->
-          <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              {{colegio.description}}
-              <i class="bi bi-quote quote-icon-right"></i>
-          </p>
-          <h4>{{ colegio.address }}</h4>
-          <h4>{{ colegio.email }}</h4>
-          <div >
-              <button class="btn btn-primary" routerLink="/events/{{ colegio.id }}">Eventos</button>
-          </div>
+    <!-- Loop Angular para mostrar instituciones -->
+    <div *ngFor="let colegio of colegios" class="testimonial-item">
+      <h3>{{ colegio.name }}</h3>
+      <div class="testimonial-img-container">
+        <img src="{{colegio.logo}}" class="testimonial-img" />
       </div>
+      <!-- Descripción colegios back --> <!--- alt="{{ colegio.name }}" --->
+      <p>
+        <i class="bi bi-quote quote-icon-left"></i>
+        {{colegio.description}}
+        <i class="bi bi-quote quote-icon-right"></i>
+      </p>
+      <!-- Información de contacto de los colegios -->
+      <h4>{{ colegio.address }}</h4>
+      <h4>{{ colegio.email }}</h4>
+      <!-- Botón con enlace a eventos de cada colegio -->
+      <div>
+        <button class="btn btn-primary" routerLink="/events/{{ colegio.id }}">Eventos</button>
+      </div>
+    </div>
   </div>
 </section>

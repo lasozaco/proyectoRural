@@ -1,19 +1,26 @@
 <body>
     <div class="wrapper">
+        <!-- Formulario reactivo usando FormGroup -->
         <form [formGroup]="loginForm" >
             <h2>Inicio de Sesión</h2>
+
+            <!-- Campo de usuario -->
             <div class="input-field">
                 <input type="text" formControlName="user" required>
                 <label>Usuario</label>
+                <!-- Validaciones en tiempo real -->
                 <div *ngIf="loginForm.get('user')?.touched && loginForm.get('user')?.invalid">
                     <small *ngIf="loginForm.get('user')?.hasError('required')">El usuario es obligatorio.</small>
                     <small *ngIf="loginForm.get('user')?.hasError('minlength')">Debe tener al menos 4
                         caracteres.</small>
                 </div>
             </div>
+
+            <!-- Campo de contraseña -->
             <div class="input-field">
                 <input type="password" formControlName="password" required>
                 <label>Contraseña</label>
+                <!-- Validaciones con mensajes específicos -->
                 <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
                     <small *ngIf="loginForm.get('password')?.hasError('required')">La contraseña es
                         obligatoria.</small>
@@ -22,6 +29,7 @@
                 </div>
             </div>
 
+            <!-- Botón de submit con validación de estado -->
             <button type="submit" (click)="onSubmit()" [disabled]="loginForm.invalid">Ingresar</button>
 
         </form>
